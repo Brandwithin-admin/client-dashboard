@@ -23,13 +23,13 @@
   .digest b { display: inline-block; min-width: 74px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px; }
   .card { background: #fff; border: 1px solid #e6e2d8; border-radius: 12px; padding: 16px 18px; }
-  .card h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #6b6555; margin-bottom: 10px; display: flex; justify-content: space-between; }
+  .card h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #6b6555; margin-bottom: 10px; display: flex; justify-content: space-between; gap: 12px; }
   .card h3 .count { background: #f0ede4; border-radius: 10px; padding: 1px 9px; font-size: 12px; color: #1f2430; }
   ul { list-style: none; }
   li { padding: 8px 0; border-top: 1px solid #f0ede4; display: flex; gap: 9px; align-items: flex-start; line-height: 1.4; }
   li:first-child { border-top: none; }
   .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
-  .dot.urgent { background: #c0392b; } .dot.high { background: #e67e22; } .dot.normal { background: #b9b3a2; }
+  .dot.urgent { background: #c0392b; } .dot.high { background: #e67e22; } .dot.normal { background: #b9b3a2; } .dot.done { background: #2e7d32; }
   a { color: #1f2430; }
   a:hover { color: #2563ab; }
   .who { color: #8a8577; font-size: 12.5px; white-space: nowrap; }
@@ -40,23 +40,23 @@
 <header>
   <h1>Brandwithin — Client Projects</h1>
 </header>
-<div class="sub">Updated Friday 10 July 2026 · refreshed every weekday morning from ClickUp + Slack</div>
+<div class="sub">Updated 10 July 2026 2:00am PST · refreshed automatically from ClickUp + Slack</div>
 
 <h2 class="client">Mariangela Parodi <span>· Website Build</span></h2>
 
 <div class="chips">
-  <div class="chip"><div class="num">32</div><div class="lbl">Open tasks</div></div>
+  <div class="chip"><div class="num">9</div><div class="lbl">Open tasks</div></div>
   <div class="chip red"><div class="num">3</div><div class="lbl">Urgent / High</div></div>
   <div class="chip amber"><div class="num">1</div><div class="lbl">Waiting review</div></div>
-  <div class="chip blue"><div class="num">4</div><div class="lbl">In progress</div></div>
-  <div class="chip green"><div class="num">12</div><div class="lbl">Done (7 days)</div></div>
+  <div class="chip blue"><div class="num">1</div><div class="lbl">In progress</div></div>
+  <div class="chip green"><div class="num">26</div><div class="lbl">Done (7 days)</div></div>
 </div>
 
 <div class="digest">
   <h3>Morning digest</h3>
-  <div><b>URGENT:</b> Blog Master edits + funnel footer fix (MJ) before/after today's 11am AEST client call with Mariangela.</div>
-  <div><b>BLOCKED:</b> Email warm-up Phase 2–3 stalled — warm-up form still not sent to Mariangela's circle for opt-ins (James &amp; Charmene).</div>
-  <div><b>WATCH:</b> Lead Magnet email sequence needs Mariangela's input; links-check report from 7 Jul still unreviewed.</div>
+  <div><b>URGENT:</b> Funnel footer and universal menu styling remain the top MJ tasks before client review.</div>
+  <div><b>BLOCKED:</b> Email warm-up opt-ins still wait on James and Charmene sharing the form with Mariangela's circle.</div>
+  <div><b>WATCH:</b> Vital blog rebuild and James placeholder copy could slip if not resolved after today's call.</div>
 </div>
 
 <div class="grid">
@@ -71,35 +71,44 @@
   <div class="card">
     <h3>⛔ Blocked <span class="count">2</span></h3>
     <ul>
-      <li><span class="dot high"></span><span><a href="https://app.clickup.com/t/86d3n6tq7" target="_blank">Email warm-up form → Mariangela + opt-ins</a> <span class="who">· James &amp; Charmene</span></span></li>
-      <li><span class="dot normal"></span><span>Lead Magnet email sequence — needs Mariangela's input <span class="who">· raise at 11am call</span></span></li>
+      <li><span class="dot high"></span><span><a href="https://app.clickup.com/t/86d3n6tq7" target="_blank">Send email warm-up form to Mariangela + collect opt-ins</a> <span class="who">· James &amp; Charmene</span></span></li>
+      <li><span class="dot normal"></span><span>Lead Magnet email sequence needs Mariangela's input <span class="who">· Charmene</span></span></li>
     </ul>
   </div>
   <div class="card">
     <h3>👀 Waiting on review <span class="count">1</span></h3>
     <ul>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3m67x4" target="_blank">Check all links on all pages — report posted 7 Jul</a> <span class="who">· needs sign-off</span></span></li>
+      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3m67x4" target="_blank">Check all links on all pages — report posted 7 Jul</a> <span class="who">· MJ</span></span></li>
     </ul>
   </div>
   <div class="card">
-    <h3>🚧 In progress <span class="count">4</span></h3>
+    <h3>🚧 In progress <span class="count">1</span></h3>
     <ul>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3kzbax" target="_blank">Blog transfer alkymia → GHL (2 imported)</a> <span class="who">· MJ &amp; Troy</span></span></li>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tqa" target="_blank">Rebuild Vital blog template (sandbox reset)</a> <span class="who">· Troy</span></span></li>
       <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3fcj1m" target="_blank">Subdomain for Emails — warm-up Phase 2–3 building</a> <span class="who">· Troy</span></span></li>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tpu" target="_blank">Copy for brain-fog-gut-connection placeholders</a> <span class="who">· James</span></span></li>
     </ul>
   </div>
 </div>
 
-<div class="card">
-  <h3>📅 Key dates</h3>
-  <ul>
-    <li><span class="dot urgent"></span><span><b>Today 11:00am AEST</b> — client update call with Mariangela (Zoom ID 851 7377 3440)</span></li>
-    <li><span class="dot normal"></span><span>Email warm-up runs ~2 weeks once opt-ins land</span></li>
-  </ul>
+<div class="grid">
+  <div class="card">
+    <h3>📌 Open to-do <span class="count">5</span></h3>
+    <ul>
+      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3kzbax" target="_blank">Transfer blogs from Alkymia website to the new GHL site</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tqa" target="_blank">Rebuild Vital blog template after sandbox reset</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tpu" target="_blank">Write copy for brain-fog-gut-connection placeholders</a> <span class="who">· James</span></span></li>
+      <li><span class="dot done"></span><span><a href="https://app.clickup.com/t/86d3fdwn6" target="_blank">Blog Master latest Slack update: logo, dropdown, and post move done</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot normal"></span><span>Border flash around Blog Master menu not possible in GHL <span class="who">· MJ</span></span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>📅 Key dates <span class="count">2</span></h3>
+    <ul>
+      <li><span class="dot urgent"></span><span><b>10 July 2026, 11:00am AEST</b> — client update call with Mariangela (Zoom ID 851 7377 3440)</span></li>
+      <li><span class="dot normal"></span><span>Email warm-up runs approximately 2 weeks once Mariangela's opt-ins are collected</span></li>
+    </ul>
+  </div>
 </div>
 
-<footer>Generated automatically by Claude from ClickUp + Slack · Brandwithin internal use</footer>
+<footer>Generated automatically from ClickUp + Slack · Brandwithin internal use</footer>
 </body>
 </html>
