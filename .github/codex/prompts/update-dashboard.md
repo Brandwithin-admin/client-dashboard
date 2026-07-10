@@ -11,7 +11,7 @@ curl -s -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
   "https://slack.com/api/conversations.history?channel=C0B4RDY3TDF&oldest=<unix_ts_75_minutes_ago>&limit=25"
 ```
 
-Normal hourly runs should read the last 75 minutes only. Use 72 hours only for the first Monday morning catch-up or for an explicit recovery/backfill. Resolve user IDs to names with `users.info` if needed. If a message says "TO DO SUMMARY" or "please add the above to ClickUp", split every actionable bullet into its own task or subtask.
+Normal hourly runs should read the last 75 minutes only. Use 72 hours only for the first Monday morning catch-up or for an explicit recovery/backfill. Resolve user IDs to names with `users.info` if needed. If a message says "TO DO SUMMARY" or "please add the above to ClickUp", split every actionable bullet into its own task.
 
 ## Step 2 — Read ClickUp
 
@@ -29,11 +29,11 @@ Compare Slack activity against ClickUp tasks:
 - CREATE a task (`POST https://api.clickup.com/api/v2/list/901615501737/task`) for any actionable request made in Slack that has no matching ClickUp task. Cite the Slack date in the description and end it with "_Created by Codex from Slack activity._"
 - Dedupe by normalized meaning, not exact title only. Treat old completed tasks as non-matches when Slack asks for fresh work or a new fix in the same area.
 - COMMENT on existing tasks (`POST https://api.clickup.com/api/v2/task/{task_id}/comment`) when Slack contains a relevant status update. Sign "— Codex, from Slack activity".
-- If comment creation fails, create or update a subtask under the matched task and put the status note in the subtask title. Put the full Slack context in the subtask description and end it with "_Created by Codex from Slack activity._"
+- If comment creation fails, edit the matched task title by appending one concise Slack status suffix instead of creating a subtask. Example: ` - reported done via Slack by MJ 10 Jul`. Keep the suffix under 12 words when possible. If the title already contains a Codex/Slack status suffix for the same update, do not append it again. If there is an older Slack status suffix, replace it with the latest concise suffix rather than stacking many suffixes.
 - Assignee user IDs: MJ Atrero = 82518853, Troy = 100890201, Kenlie Carreon-Yang = 101110845. James and Charmene are NOT ClickUp members: leave their tasks unassigned and put their name in the task title in parentheses. For any other unmapped owner, also leave unassigned and put their name in the title.
-- NEVER close/complete tasks, change statuses, change due dates, or delete anything. Create tasks, comments, and fallback subtasks only.
+- NEVER close/complete tasks, change statuses, change due dates, or delete anything. Create tasks, comments, and fallback task-title updates only.
 - If nothing new happened in Slack, skip this step entirely.
-- After creating tasks or fallback subtasks, re-fetch enough ClickUp data so the dashboard reflects the new ClickUp state from this run.
+- After creating tasks or updating titles, re-fetch enough ClickUp data so the dashboard reflects the new ClickUp state from this run.
 
 ## Step 4 — Regenerate index.html
 
@@ -51,4 +51,4 @@ Single self-contained file, inline CSS, no external scripts.
 
 ## Step 5 — Publish and finish
 
-Commit `index.html` to main and push when this prompt is run by the active Codex app automation. If a separate GitHub Action wrapper is ever reintroduced and handles publishing, do not double-commit. End with a short summary: tasks/comments created, fallback subtasks used, dashboard update status, the three digest lines, Slack window used, and any API errors encountered.
+Commit `index.html` to main and push when this prompt is run by the active Codex app automation. If a separate GitHub Action wrapper is ever reintroduced and handles publishing, do not double-commit. End with a short summary: tasks/comments created, title-update fallbacks used, dashboard update status, the three digest lines, Slack window used, and any API errors encountered.

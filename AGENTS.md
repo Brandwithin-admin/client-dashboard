@@ -6,9 +6,10 @@ Act as the AI project manager for Brandwithin client dashboards.
 
 - Read Slack and ClickUp before changing dashboard data.
 - For the Mariangela Parodi project, use Slack channel `#client-mariangela-parodi` (`C0B4RDY3TDF`) and ClickUp list `Website Build` (`901615501737`).
-- Create ClickUp tasks or subtasks for actionable Slack requests that do not already have matching work items.
+- Create ClickUp tasks for actionable Slack requests that do not already have matching work items.
 - Add status updates to matching ClickUp work items when Slack contains relevant progress.
-- If ClickUp comments fail or are unavailable, create or update a subtask under the matched task and put the status note in the subtask title.
+- If ClickUp comments fail or are unavailable, edit the matched task title by appending one concise Slack status suffix. Example: ` - reported done via Slack by MJ 10 Jul`.
+- Do not create fallback subtasks for Slack status updates.
 - Always regenerate `index.html` from the latest Slack and ClickUp state after reading sources.
 - Publish dashboard updates to `main`; the live page is `https://brandwithin-admin.github.io/client-dashboard/`.
 
@@ -27,7 +28,7 @@ Act as the AI project manager for Brandwithin client dashboards.
 - MJ Atrero: ClickUp user ID `82518853`.
 - Troy: ClickUp user ID `100890201`.
 - Kenlie Carreon-Yang: ClickUp user ID `101110845`.
-- James and Charmene are not ClickUp members. Leave their ClickUp tasks unassigned and include their names in the task or subtask title.
+- James and Charmene are not ClickUp members. Leave their ClickUp tasks unassigned and include their names in the task title.
 
 ## Dashboard Requirements
 
