@@ -38,5 +38,6 @@ Act as the AI project manager for Brandwithin client dashboards.
 - Include the section `Mariangela Parodi · Website Build`.
 - Show stat chips for open tasks, urgent/high, waiting review, in progress, and done last 7 days.
 - Include a three-line morning digest: `URGENT`, `BLOCKED`, and `WATCH`, each under 25 words.
+- Include a dated project timeline visual that tracks progression across major phases, milestones, blockers, and next steps.
 - Link task names to `https://app.clickup.com/t/TASKID` and show assignee first names.
 - Use the footer `Generated automatically from ClickUp + Slack · Brandwithin internal use`.

@@ -28,8 +28,9 @@ Compare Slack activity against ClickUp tasks:
 
 - CREATE a task (`POST https://api.clickup.com/api/v2/list/901615501737/task`) for any actionable request made in Slack that has no matching ClickUp task. Cite the Slack date in the description and end it with "_Created by Codex from Slack activity._"
 - COMMENT on existing tasks (`POST https://api.clickup.com/api/v2/task/{task_id}/comment`) when Slack contains a relevant status update. Sign "— Codex, from Slack activity".
+- If comment creation fails, create or update a subtask under the matched task and put the status note in the subtask title. Put the full Slack context in the subtask description and end it with "_Created by Codex from Slack activity._"
 - Assignee user IDs: MJ Atrero = 82518853, Troy = 100890201, Kenlie Carreon-Yang = 101110845. James and Charmene are NOT ClickUp members: leave their tasks unassigned and put their name in the task title in parentheses.
-- NEVER close/complete tasks, change statuses, change due dates, or delete anything. Create tasks and comments only.
+- NEVER close/complete tasks, change statuses, change due dates, or delete anything. Create tasks, comments, and fallback subtasks only.
 - If nothing new happened in Slack, skip this step entirely.
 
 ## Step 4 — Regenerate index.html
@@ -40,8 +41,9 @@ Overwrite `index.html` in the repository root. Keep the existing visual design (
 2. Client section "Mariangela Parodi · Website Build"
 3. Stat chips: Open tasks, Urgent/High, Waiting review (status "for checking"), In progress, Done last 7 days. Open = status not "complete"/"not applicable".
 4. "Morning digest" card: exactly three lines — URGENT, BLOCKED, WATCH — each under 25 words, written from the combined Slack + ClickUp picture.
-5. Cards: 🔥 Urgent & high priority, ⛔ Blocked, 👀 Waiting on review, 🚧 In progress, 📅 Key dates (meetings/deadlines mentioned in Slack). Every task links to https://app.clickup.com/t/TASKID with assignee first names.
-6. Footer: "Generated automatically from ClickUp + Slack · Brandwithin internal use"
+5. Dated project timeline visual that tracks progression across major phases, milestones, blockers, and next steps.
+6. Cards: 🔥 Urgent & high priority, ⛔ Blocked, 👀 Waiting on review, 🚧 In progress, 📅 Key dates (meetings/deadlines mentioned in Slack). Every task links to https://app.clickup.com/t/TASKID with assignee first names.
+7. Footer: "Generated automatically from ClickUp + Slack · Brandwithin internal use"
 
 Single self-contained file, inline CSS, no external scripts.
 

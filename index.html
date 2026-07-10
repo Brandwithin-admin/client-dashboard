@@ -45,6 +45,19 @@
     margin-bottom: 8px;
   }
   .digest b { display: inline-block; min-width: 74px; }
+  .timeline { background: #fff; border: 1px solid #e6e2d8; border-radius: 12px; padding: 18px; margin-bottom: 20px; }
+  .timeline h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #6b6555; margin-bottom: 16px; display: flex; justify-content: space-between; gap: 12px; }
+  .track { display: grid; grid-template-columns: repeat(6, minmax(120px, 1fr)); gap: 0; overflow-x: auto; padding-bottom: 2px; }
+  .step { position: relative; min-width: 120px; padding: 0 14px 0 0; }
+  .step:before { content: ""; position: absolute; top: 8px; left: 12px; right: 0; height: 2px; background: #e7e1d6; }
+  .step:last-child:before { display: none; }
+  .marker { position: relative; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 2px solid #b9b3a2; margin-bottom: 10px; z-index: 1; }
+  .step.done .marker { background: #2e7d32; border-color: #2e7d32; }
+  .step.active .marker { background: #2563ab; border-color: #2563ab; }
+  .step.blocked .marker { background: #c0392b; border-color: #c0392b; }
+  .date { color: #8a8577; font-size: 12px; margin-bottom: 3px; }
+  .stage { font-weight: 650; line-height: 1.3; margin-bottom: 4px; }
+  .detail { color: #6f6a5d; font-size: 12.5px; line-height: 1.35; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px; }
   .card { background: #fff; border: 1px solid #e6e2d8; border-radius: 12px; padding: 16px 18px; }
   .card h3 {
@@ -75,6 +88,11 @@
   @media (max-width: 720px) {
     body { padding: 18px; }
     .chip { min-width: calc(50% - 5px); }
+    .track { grid-template-columns: 1fr; gap: 14px; overflow: visible; }
+    .step { padding-left: 28px; min-width: 0; }
+    .step:before { top: 18px; left: 8px; right: auto; bottom: -18px; width: 2px; height: auto; }
+    .step:last-child:before { display: none; }
+    .marker { position: absolute; left: 0; top: 0; }
   }
 </style>
 </head>
@@ -100,6 +118,48 @@
   <div><b>BLOCKED:</b> Email warm-up still waits on James and Charmene sending Mariangela’s opt-in form to family and friends.</div>
   <div><b>WATCH:</b> Vital blog rebuild and sitewide nav consistency may slip if Troy and MJ stay split across fixes.</div>
 </div>
+
+<section class="timeline">
+  <h3>Project timeline <span>Design → Review → Launch</span></h3>
+  <div class="track">
+    <div class="step done">
+      <div class="marker"></div>
+      <div class="date">24 Jun</div>
+      <div class="stage">Build foundation</div>
+      <div class="detail">Website structure, brand styling, pages, and technical setup completed.</div>
+    </div>
+    <div class="step done">
+      <div class="marker"></div>
+      <div class="date">1 Jul</div>
+      <div class="stage">Review booked</div>
+      <div class="detail">Client update call scheduled for 10 July at 11:00am AEST.</div>
+    </div>
+    <div class="step done">
+      <div class="marker"></div>
+      <div class="date">7 Jul</div>
+      <div class="stage">QA pass</div>
+      <div class="detail">Privacy, terms, and links check reported for review.</div>
+    </div>
+    <div class="step active">
+      <div class="marker"></div>
+      <div class="date">9-10 Jul</div>
+      <div class="stage">Blog and funnel fixes</div>
+      <div class="detail">Blog Master fixes mostly done; funnel footer and universal menu still urgent.</div>
+    </div>
+    <div class="step blocked">
+      <div class="marker"></div>
+      <div class="date">10 Jul</div>
+      <div class="stage">Email warm-up blocked</div>
+      <div class="detail">Waiting on James and Charmene to send opt-in form to Mariangela's circle.</div>
+    </div>
+    <div class="step">
+      <div class="marker"></div>
+      <div class="date">Next</div>
+      <div class="stage">Launch readiness</div>
+      <div class="detail">Clear client review notes, approve links, finish warm-up inputs, and confirm launch path.</div>
+    </div>
+  </div>
+</section>
 
 <div class="grid">
   <div class="card">
