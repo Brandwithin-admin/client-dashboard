@@ -3,108 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brandwithin — Client Project Dashboard</title>
+<title>Brandwithin — Client Projects</title>
 <style>
   :root { color-scheme: light; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f7f6f3; color: #1f2430; padding: 28px; font-size: 15px; max-width: 1100px; margin: 0 auto; }
-  header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f7f6f3;
+    color: #1f2430;
+    padding: 28px;
+    font-size: 15px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  header { margin-bottom: 6px; }
   h1 { font-size: 24px; font-weight: 700; }
   .sub { color: #8a8577; font-size: 13px; margin-bottom: 22px; }
   h2.client { font-size: 18px; margin: 10px 0 14px; }
   h2.client span { color: #8a8577; font-weight: 500; font-size: 14px; }
   .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-  .chip { background: #fff; border: 1px solid #e6e2d8; border-radius: 10px; padding: 12px 18px; min-width: 108px; }
+  .chip { background: #fff; border: 1px solid #e6e2d8; border-radius: 10px; padding: 12px 18px; min-width: 112px; }
   .chip .num { font-size: 24px; font-weight: 700; }
   .chip .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #8a8577; margin-top: 2px; }
-  .red .num { color: #c0392b; } .amber .num { color: #b8860b; } .blue .num { color: #2563ab; } .green .num { color: #2e7d32; }
-  .digest { background: #fdf9ec; border: 1px solid #ede3bd; border-radius: 12px; padding: 16px 18px; margin-bottom: 20px; line-height: 1.55; }
-  .digest h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #8a6d1f; margin-bottom: 8px; }
+  .red .num { color: #c0392b; }
+  .amber .num { color: #b8860b; }
+  .blue .num { color: #2563ab; }
+  .green .num { color: #2e7d32; }
+  .digest {
+    background: #fdf9ec;
+    border: 1px solid #ede3bd;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .digest h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #8a6d1f;
+    margin-bottom: 8px;
+  }
   .digest b { display: inline-block; min-width: 74px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px; }
   .card { background: #fff; border: 1px solid #e6e2d8; border-radius: 12px; padding: 16px 18px; }
-  .card h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #6b6555; margin-bottom: 10px; display: flex; justify-content: space-between; gap: 12px; }
-  .card h3 .count { background: #f0ede4; border-radius: 10px; padding: 1px 9px; font-size: 12px; color: #1f2430; }
+  .card h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: #6b6555;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .count { background: #f0ede4; border-radius: 10px; padding: 1px 9px; font-size: 12px; color: #1f2430; }
   ul { list-style: none; }
-  li { padding: 8px 0; border-top: 1px solid #f0ede4; display: flex; gap: 9px; align-items: flex-start; line-height: 1.4; }
+  li { padding: 8px 0; border-top: 1px solid #f0ede4; display: flex; gap: 9px; align-items: flex-start; line-height: 1.45; }
   li:first-child { border-top: none; }
   .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
-  .dot.urgent { background: #c0392b; } .dot.high { background: #e67e22; } .dot.normal { background: #b9b3a2; } .dot.done { background: #2e7d32; }
+  .dot.urgent { background: #c0392b; }
+  .dot.high { background: #e67e22; }
+  .dot.normal { background: #b9b3a2; }
+  .dot.review { background: #d4a017; }
+  .dot.progress { background: #2563ab; }
   a { color: #1f2430; }
   a:hover { color: #2563ab; }
   .who { color: #8a8577; font-size: 12.5px; white-space: nowrap; }
+  .meta { color: #6f6a5d; font-size: 12.5px; display: inline; }
   footer { color: #b0aa99; font-size: 12px; margin-top: 26px; text-align: center; }
+  @media (max-width: 720px) {
+    body { padding: 18px; }
+    .chip { min-width: calc(50% - 5px); }
+  }
 </style>
 </head>
 <body>
 <header>
   <h1>Brandwithin — Client Projects</h1>
 </header>
-<div class="sub">Updated 10 July 2026 2:00am PST · refreshed automatically from ClickUp + Slack</div>
+<div class="sub">Updated 10 July 2026 11:41AM AEST · refreshed automatically from ClickUp + Slack</div>
 
 <h2 class="client">Mariangela Parodi <span>· Website Build</span></h2>
 
 <div class="chips">
-  <div class="chip"><div class="num">9</div><div class="lbl">Open tasks</div></div>
+  <div class="chip"><div class="num">32</div><div class="lbl">Open tasks</div></div>
   <div class="chip red"><div class="num">3</div><div class="lbl">Urgent / High</div></div>
   <div class="chip amber"><div class="num">1</div><div class="lbl">Waiting review</div></div>
-  <div class="chip blue"><div class="num">1</div><div class="lbl">In progress</div></div>
-  <div class="chip green"><div class="num">26</div><div class="lbl">Done (7 days)</div></div>
+  <div class="chip blue"><div class="num">7</div><div class="lbl">In progress</div></div>
+  <div class="chip green"><div class="num">26</div><div class="lbl">Done last 7 days</div></div>
 </div>
 
 <div class="digest">
   <h3>Morning digest</h3>
-  <div><b>URGENT:</b> Funnel footer and universal menu styling remain the top MJ tasks before client review.</div>
-  <div><b>BLOCKED:</b> Email warm-up opt-ins still wait on James and Charmene sharing the form with Mariangela's circle.</div>
-  <div><b>WATCH:</b> Vital blog rebuild and James placeholder copy could slip if not resolved after today's call.</div>
+  <div><b>URGENT:</b> Blog Master logo/dropdown fixes and universal mobile menu need MJ resolved before today’s Mariangela call.</div>
+  <div><b>BLOCKED:</b> Email warm-up still waits on James and Charmene sending Mariangela’s opt-in form to family and friends.</div>
+  <div><b>WATCH:</b> Vital blog rebuild and sitewide nav consistency may slip if Troy and MJ stay split across fixes.</div>
 </div>
 
 <div class="grid">
   <div class="card">
     <h3>🔥 Urgent &amp; high priority <span class="count">3</span></h3>
     <ul>
-      <li><span class="dot urgent"></span><span><a href="https://app.clickup.com/t/86d3n5zx6" target="_blank">Fix Universal section footer found in the FUNNEL</a> <span class="who">· MJ</span></span></li>
-      <li><span class="dot urgent"></span><span><a href="https://app.clickup.com/t/86d3n6tpf" target="_blank">Blog Master edits from Jacinta (9 Jul)</a> <span class="who">· MJ</span></span></li>
-      <li><span class="dot high"></span><span><a href="https://app.clickup.com/t/86d3n5z65" target="_blank">Universal section with Menu — match AI studio</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot urgent"></span><span><a href="https://app.clickup.com/t/86d3n6tpf" target="_blank">Blog Master edits from Jacinta (9 Jul)</a> <span class="who">· MJ</span> <span class="meta">green dropdown and homepage logo still flagged in Slack on 10 Jul</span></span></li>
+      <li><span class="dot urgent"></span><span><a href="https://app.clickup.com/t/86d3n5zx6" target="_blank">Fix Universal section footer found in the FUNNEL</a> <span class="who">· MJ</span> <span class="meta">still tied to the funnel cleanup before client review</span></span></li>
+      <li><span class="dot high"></span><span><a href="https://app.clickup.com/t/86d3n5z65" target="_blank">Universal section with Menu - make it look like the one in ai studio</a> <span class="who">· MJ</span> <span class="meta">now includes mobile menu and sitewide nav consistency notes</span></span></li>
     </ul>
   </div>
-  <div class="card">
-    <h3>⛔ Blocked <span class="count">2</span></h3>
-    <ul>
-      <li><span class="dot high"></span><span><a href="https://app.clickup.com/t/86d3n6tq7" target="_blank">Send email warm-up form to Mariangela + collect opt-ins</a> <span class="who">· James &amp; Charmene</span></span></li>
-      <li><span class="dot normal"></span><span>Lead Magnet email sequence needs Mariangela's input <span class="who">· Charmene</span></span></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>👀 Waiting on review <span class="count">1</span></h3>
-    <ul>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3m67x4" target="_blank">Check all links on all pages — report posted 7 Jul</a> <span class="who">· MJ</span></span></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>🚧 In progress <span class="count">1</span></h3>
-    <ul>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3fcj1m" target="_blank">Subdomain for Emails — warm-up Phase 2–3 building</a> <span class="who">· Troy</span></span></li>
-    </ul>
-  </div>
-</div>
 
-<div class="grid">
   <div class="card">
-    <h3>📌 Open to-do <span class="count">5</span></h3>
+    <h3>⛔ Blocked <span class="count">3</span></h3>
     <ul>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3kzbax" target="_blank">Transfer blogs from Alkymia website to the new GHL site</a> <span class="who">· Troy</span></span></li>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tqa" target="_blank">Rebuild Vital blog template after sandbox reset</a> <span class="who">· Troy</span></span></li>
-      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tpu" target="_blank">Write copy for brain-fog-gut-connection placeholders</a> <span class="who">· James</span></span></li>
-      <li><span class="dot done"></span><span><a href="https://app.clickup.com/t/86d3fdwn6" target="_blank">Blog Master latest Slack update: logo, dropdown, and post move done</a> <span class="who">· MJ</span></span></li>
-      <li><span class="dot normal"></span><span>Border flash around Blog Master menu not possible in GHL <span class="who">· MJ</span></span></li>
+      <li><span class="dot high"></span><span><a href="https://app.clickup.com/t/86d3n6tq7" target="_blank">Send email warm-up form to Mariangela + collect opt-ins (James &amp; Charmene)</a> <span class="who">· James &amp; Charmene</span></span></li>
+      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n6tpu" target="_blank">Write copy for placeholders — brain-fog-gut-connection blog post (James)</a> <span class="who">· James</span></span></li>
+      <li><span class="dot normal"></span><span><a href="https://app.clickup.com/t/86d3n9mrw" target="_blank">Slack 10 Jul: Blog Master still has logo + green dropdown issues</a> <span class="who">· Slack fallback</span></span></li>
     </ul>
   </div>
+
+  <div class="card">
+    <h3>👀 Waiting on review <span class="count">2</span></h3>
+    <ul>
+      <li><span class="dot review"></span><span><a href="https://app.clickup.com/t/86d3m67x4" target="_blank">Check all links on all pages if working - https://mariangelaparodi.com/</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot review"></span><span><a href="https://app.clickup.com/t/86d3n7ddz" target="_blank">Verify Blog Master fixes from MJ's 10 Jul Slack update</a> <span class="who">· MJ</span></span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🚧 In progress <span class="count">4</span></h3>
+    <ul>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fcj1m" target="_blank">Subdomain for Emails</a> <span class="who">· Troy</span> <span class="meta">Phase 2 and 3 warm-up building continues</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3n6tqa" target="_blank">Rebuild Vital blog template (lost in sandbox reset)</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3kzbax" target="_blank">Troy to transfer over Blogs from alkymia website to the new ghl site</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e2a0x" target="_blank">Website content system applied across pages - James &amp; MJ</a> <span class="who">· James &amp; MJ</span></span></li>
+    </ul>
+  </div>
+
   <div class="card">
     <h3>📅 Key dates <span class="count">2</span></h3>
     <ul>
-      <li><span class="dot urgent"></span><span><b>10 July 2026, 11:00am AEST</b> — client update call with Mariangela (Zoom ID 851 7377 3440)</span></li>
-      <li><span class="dot normal"></span><span>Email warm-up runs approximately 2 weeks once Mariangela's opt-ins are collected</span></li>
+      <li><span class="dot urgent"></span><span><b>10 July 2026, 11:00AM AEST</b> <span class="meta">— Mariangela website build update call (Zoom ID 851 7377 3440)</span></span></li>
+      <li><span class="dot normal"></span><span><b>Next 2 weeks after opt-ins</b> <span class="meta">— email warm-up continues once James and Charmene send the form to Mariangela’s circle</span></span></li>
     </ul>
   </div>
 </div>
