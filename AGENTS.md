@@ -8,6 +8,7 @@ Act as the AI project manager for Brandwithin client dashboards.
 - For the Mariangela Parodi project, use Slack channel `#client-mariangela-parodi` (`C0B4RDY3TDF`) and ClickUp list `Website Build` (`901615501737`).
 - Create ClickUp tasks for actionable Slack requests that do not already have matching work items.
 - Add status updates to matching ClickUp work items when Slack contains relevant progress.
+- Update ClickUp status, assignee, priority, and due date when Slack or ClickUp gives a clear signal.
 - If ClickUp comments fail or are unavailable, edit the matched task title by appending one concise Slack status suffix. Example: ` - reported done via Slack by MJ 10 Jul`.
 - Do not create fallback subtasks for Slack status updates.
 - Always regenerate `index.html` from the latest Slack and ClickUp state after reading sources.
@@ -16,12 +17,14 @@ Act as the AI project manager for Brandwithin client dashboards.
 ## Safety Rules
 
 - Do not post to Slack.
-- Do not close tasks.
-- Do not change task statuses.
-- Do not change due dates.
 - Do not delete tasks, subtasks, comments, or dashboard files.
 - Do not create duplicate ClickUp tasks; compare Slack activity against existing tasks first.
 - If another scheduler for the same dashboard sync is active, skip ClickUp writes to avoid duplicates and report the risk.
+- Only change status, due date, priority, or assignee when the source signal is explicit enough to defend.
+- If an assignee reports work is done/fixed/completed, move the matched task to `complete`.
+- If someone asks for review/checking or says work is ready to review, move the matched task to `for checking`.
+- If someone says they are working/starting/building, move the matched task to `in progress`.
+- Use explicit due dates or relative dates grounded in the Slack timestamp. Do not invent dates from vague words like `soon`.
 
 ## People And Assignees
 
@@ -41,4 +44,5 @@ Act as the AI project manager for Brandwithin client dashboards.
 - Include a three-line morning digest: `URGENT`, `BLOCKED`, and `WATCH`, each under 25 words.
 - Include a dated project timeline visual that tracks progression across major phases, milestones, blockers, and next steps.
 - Link task names to `https://app.clickup.com/t/TASKID` and show assignee first names.
+- Add a bottom section listing all tasks whose status is `complete`, so completed work does not look missing from the dashboard.
 - Use the footer `Generated automatically from ClickUp + Slack · Brandwithin internal use`.

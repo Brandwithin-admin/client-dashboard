@@ -31,7 +31,12 @@ Compare Slack activity against ClickUp tasks:
 - COMMENT on existing tasks (`POST https://api.clickup.com/api/v2/task/{task_id}/comment`) when Slack contains a relevant status update. Sign "— Codex, from Slack activity".
 - If comment creation fails, edit the matched task title by appending one concise Slack status suffix instead of creating a subtask. Example: ` - reported done via Slack by MJ 10 Jul`. Keep the suffix under 12 words when possible. If the title already contains a Codex/Slack status suffix for the same update, do not append it again. If there is an older Slack status suffix, replace it with the latest concise suffix rather than stacking many suffixes.
 - Assignee user IDs: MJ Atrero = 82518853, Troy = 100890201, Kenlie Carreon-Yang = 101110845. James and Charmene are NOT ClickUp members: leave their tasks unassigned and put their name in the task title in parentheses. For any other unmapped owner, also leave unassigned and put their name in the title.
-- NEVER close/complete tasks, change statuses, change due dates, or delete anything. Create tasks, comments, and fallback task-title updates only.
+- Update ClickUp status, assignee, priority, and due date when Slack or ClickUp gives a clear signal. If the signal is ambiguous, leave the field unchanged.
+- Status rules: if an assignee reports work is done/fixed/completed, move the matched task to `complete`; if someone asks for review/checking or says work is ready to review, move it to `for checking`; if someone says they are working/starting/building, move it to `in progress`; use `to do` for newly requested work unless another status is explicit.
+- Priority rules: use `urgent` for ASAP/blocker/before-meeting/client-blocking language, `high` for important near-term owner requests, `normal` by default, and `low` only when explicitly low priority.
+- Due-date rules: set or update due dates only from explicit dates/times or relative dates grounded in the Slack timestamp, such as today, tomorrow, Friday, or before a named meeting. Do not invent dates from vague words like `soon`.
+- Assignee rules: assign mapped ClickUp members when Slack names them as the owner. James, Charmene, Jacinta, Kim, and other unmapped owners remain unassigned with their names in the title.
+- NEVER delete tasks, subtasks, comments, or dashboard files.
 - If nothing new happened in Slack, skip this step entirely.
 - After creating tasks or updating titles, re-fetch enough ClickUp data so the dashboard reflects the new ClickUp state from this run.
 
@@ -45,10 +50,11 @@ Overwrite `index.html` in the repository root. Keep the existing visual design (
 4. "Morning digest" card: exactly three lines — URGENT, BLOCKED, WATCH — each under 25 words, written from the combined Slack + ClickUp picture.
 5. Dated project timeline visual that tracks progression across major phases, milestones, blockers, and next steps.
 6. Cards: 🔥 Urgent & high priority, ⛔ Blocked, 👀 Waiting on review, 🚧 In progress, 📅 Key dates (meetings/deadlines mentioned in Slack). Every task links to https://app.clickup.com/t/TASKID with assignee first names.
-7. Footer: "Generated automatically from ClickUp + Slack · Brandwithin internal use"
+7. Bottom section: ✅ Completed tasks, listing all tasks whose status is `complete` so completed work does not look missing from the dashboard. Every completed task must link to https://app.clickup.com/t/TASKID and show assignee first names or `Unassigned`.
+8. Footer: "Generated automatically from ClickUp + Slack · Brandwithin internal use"
 
 Single self-contained file, inline CSS, no external scripts.
 
 ## Step 5 — Publish and finish
 
-Commit `index.html` to main and push when this prompt is run by the active Codex app automation. If a separate GitHub Action wrapper is ever reintroduced and handles publishing, do not double-commit. End with a short summary: tasks/comments created, title-update fallbacks used, dashboard update status, the three digest lines, Slack window used, and any API errors encountered.
+Commit `index.html` to main and push when this prompt is run by the active Codex app automation. If a separate GitHub Action wrapper is ever reintroduced and handles publishing, do not double-commit. End with a short summary: tasks/comments created, field changes made, title-update fallbacks used, dashboard update status, the three digest lines, Slack window used, and any API errors encountered.
