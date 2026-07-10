@@ -61,8 +61,18 @@
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 20px; }
   .card { background: #fff; border: 1px solid #e6e2d8; border-radius: 12px; padding: 16px 18px; }
   .completed { margin-bottom: 20px; }
+  .completed h3 { align-items: center; }
   .completed ul { columns: 2 320px; column-gap: 28px; }
   .completed li { break-inside: avoid; }
+  .phase-group { border-top: 1px solid #f0ede4; padding: 8px 0; }
+  .phase-group:first-of-type { border-top: none; }
+  .phase-group summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 5px 0; }
+  .phase-group summary::-webkit-details-marker { display: none; }
+  .phase-title { font-weight: 650; }
+  .phase-title:before { content: "+"; color: #8a8577; display: inline-block; width: 16px; }
+  .phase-group[open] .phase-title:before { content: "-"; }
+  .phase-group ul { margin-top: 6px; padding-left: 16px; }
+  .phase-group li:first-child { border-top: 1px solid #f0ede4; }
   .card h3 {
     font-size: 12px;
     text-transform: uppercase;
@@ -221,91 +231,113 @@
 </div>
 
 <section class="card completed">
-  <h3>✅ Completed tasks</h3>
-  <ul>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nct3y" target="_blank">Add mobile menu and match nav across HTML pages</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3n5z65" target="_blank">Universal section with Menu - make it look like the one in ai studio</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nbvdt" target="_blank">Slack 10 Jul: mobile universal menu + nav consistency</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nb0wq" target="_blank">Slack 10 Jul: mobile universal menu still outstanding</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3n9nqx" target="_blank">Slack 10 Jul: mobile universal menu + sitewide nav consistency</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nct2w" target="_blank">Confirm GHL media library image approach - confirmed via Slack by Troy 10 Jul</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3h5289" target="_blank">Build header and footer universal template of https://mariangelaparodi.com/</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29qk" target="_blank">Subdomain for Funnels</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29pw" target="_blank">Subdomain for Membership (Portal)</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29qj" target="_blank">Subdomain for Lead Magnet (Opt-in)</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29pv" target="_blank">DMARC records configured</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek303" target="_blank">Website page copywriting - James</a> <span class="who">· James</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejntg" target="_blank">Pre-intake review - Kim</a> <span class="who">· Kim</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29hb" target="_blank">Phase 0 - Sale &amp; Kickoff Gate</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek1u6" target="_blank">Brand guidelines/Building instructions - Jacinta</a> <span class="who">· Jacinta</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek1cc" target="_blank">Client approved the brand direction</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3jt1dw" target="_blank">Build GHL BLog Template and Post Templalate from Anchored Ttemplate</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29vw" target="_blank">XXX GHL website rebuild started - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3kfwq6" target="_blank">Set up a funnel form for landing page</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3kfwdm" target="_blank">Set up an enquiry form in Contact Us page</a> <span class="who">· Kenlie</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29z1" target="_blank">Alt text added to all images - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29yp" target="_blank">Meta description added per page - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29yg" target="_blank">Meta title added per page - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29y7" target="_blank">Featured image added per page: 1200x630px - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29xn" target="_blank">Bottom sections made universal across pages - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29y2" target="_blank">GHL build matched to approved AI design - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29x5" target="_blank">Heading hierarchy checked</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdyn0" target="_blank">One H1 per page</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdyvz" target="_blank">H2/H3/H4 structure</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wy" target="_blank">All website images optimised - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wx" target="_blank">Global sizing set from brand guide - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zy" target="_blank">Terms &amp; Conditions page created from Brandwithin template - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zf" target="_blank">Privacy Policy page created from Brandwithin template - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3jt1bm" target="_blank">MJ PLease updat ethe menu links</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e2a0c" target="_blank">Terms &amp; Conditions linked - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zz" target="_blank">Privacy Policy linked - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29p3" target="_blank">SPF records configured</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fcn7u" target="_blank">Subdomain for branded domain</a> <span class="who">· Troy</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvvb" target="_blank">Services Overview</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwn6" target="_blank">Blog Master</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwq9" target="_blank">Service Detail Page 1</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwgb" target="_blank">Menu Tab</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvtq" target="_blank">About Page</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwh1" target="_blank">Booking Page</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvwh" target="_blank">Contact Page</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvtf" target="_blank">Home Page</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvw3" target="_blank">Blog</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvxh" target="_blank">Footer</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwnp" target="_blank">Blog Template</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwtq" target="_blank">Service Detail Page 2</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvmf" target="_blank">Website build per page completed</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fe37g" target="_blank">Opt-in Page (Funnel)</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29v1" target="_blank">Phase 1 - Onboarding</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek3tp" target="_blank">AHPRA-compliant or TGA-compliant copy</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29y0" target="_blank">Recommended brand direction preparation - James</a> <span class="who">· James</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek4fc" target="_blank">Visual assets received (uploaded in GDrive) - Client</a> <span class="who">· Client</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejqtz" target="_blank">Blueprint preparation based on the onboarding result</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek10x" target="_blank">Onboarding call date &amp; time booked - Client</a> <span class="who">· Client</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zu" target="_blank">Onboarding call email sent to client - James &amp; Kim</a> <span class="who">· James &amp; Kim</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejpku" target="_blank">Design and visual preferences brief</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejp7u" target="_blank">Social media scan</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejp6a" target="_blank">GBP and local presence check</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejp2k" target="_blank">Client existing website content review</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29xk" target="_blank">Top sections made universal across pages - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wg" target="_blank">Global brand colours set from brand guide - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wj" target="_blank">Global fonts set from brand guide - MJ</a> <span class="who">· MJ</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29w4" target="_blank">Blueprint received &amp; reviewed - James</a> <span class="who">· James</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek3wd" target="_blank">Google Drive folder created - Charmene</a> <span class="who">· Charmene</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejzke" target="_blank">Website/Funnel template</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zb" target="_blank">Project Slack channel created - Charmene</a> <span class="who">· Charmene</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29za" target="_blank">Brand direction sent to client for approval - James &amp; Kim</a> <span class="who">· James &amp; Kim</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejxrd" target="_blank">Design and visual preferences</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejxpw" target="_blank">Current website self-assessment of the client</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejwx1" target="_blank">Foundational questions using voice interview</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29hh" target="_blank">Deposit paid and cleared - Charmene</a> <span class="who">· Admin</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejwwv" target="_blank">Blueprint sent - James &amp; Kim</a> <span class="who">· James &amp; Kim</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejeh9" target="_blank">Preferred color pallete</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29hj" target="_blank">Project start date confirmed - James &amp; Jacinta</a> <span class="who">· James &amp; Jacinta</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wm" target="_blank">Look and feel of the website</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wk" target="_blank">Favourite websites</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejk9k" target="_blank">Client/Business data gathering for sub-account setup</a> <span class="who">· Unassigned</span></span></li>
-    <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29j3" target="_blank">Confirm deposit receipt/reference recorded - Charmene</a> <span class="who">· Charmene</span></span></li>
-  </ul>
+  <h3>✅ Completed tasks <span class="count">82</span></h3>
+
+  <details class="phase-group">
+    <summary><span class="phase-title">Phase 0 - Sale &amp; Kickoff Gate</span><span class="count">7</span></summary>
+    <ul>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29hb" target="_blank">Phase 0 - Sale &amp; Kickoff Gate</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek3wd" target="_blank">Google Drive folder created - Charmene</a> <span class="who">· Charmene</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zb" target="_blank">Project Slack channel created - Charmene</a> <span class="who">· Charmene</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29hh" target="_blank">Deposit paid and cleared - Charmene</a> <span class="who">· Admin</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29hj" target="_blank">Project start date confirmed - James &amp; Jacinta</a> <span class="who">· James &amp; Jacinta</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejk9k" target="_blank">Client/Business data gathering for sub-account setup</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29j3" target="_blank">Confirm deposit receipt/reference recorded - Charmene</a> <span class="who">· Charmene</span></span></li>
+    </ul>
+  </details>
+
+  <details class="phase-group">
+    <summary><span class="phase-title">Phase 1 - Onboarding</span><span class="count">25</span></summary>
+    <ul>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29v1" target="_blank">Phase 1 - Onboarding</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek303" target="_blank">Website page copywriting - James</a> <span class="who">· James</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejntg" target="_blank">Pre-intake review - Kim</a> <span class="who">· Kim</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek1u6" target="_blank">Brand guidelines/Building instructions - Jacinta</a> <span class="who">· Jacinta</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek1cc" target="_blank">Client approved the brand direction</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek3tp" target="_blank">AHPRA-compliant or TGA-compliant copy</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29y0" target="_blank">Recommended brand direction preparation - James</a> <span class="who">· James</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek4fc" target="_blank">Visual assets received (uploaded in GDrive) - Client</a> <span class="who">· Client</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejqtz" target="_blank">Blueprint preparation based on the onboarding result</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ek10x" target="_blank">Onboarding call date &amp; time booked - Client</a> <span class="who">· Client</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zu" target="_blank">Onboarding call email sent to client - James &amp; Kim</a> <span class="who">· James &amp; Kim</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejpku" target="_blank">Design and visual preferences brief</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejp7u" target="_blank">Social media scan</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejp6a" target="_blank">GBP and local presence check</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejp2k" target="_blank">Client existing website content review</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29w4" target="_blank">Blueprint received &amp; reviewed - James</a> <span class="who">· James</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejzke" target="_blank">Website/Funnel template</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29za" target="_blank">Brand direction sent to client for approval - James &amp; Kim</a> <span class="who">· James &amp; Kim</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejxrd" target="_blank">Design and visual preferences</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejxpw" target="_blank">Current website self-assessment of the client</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejwx1" target="_blank">Foundational questions using voice interview</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejwwv" target="_blank">Blueprint sent - James &amp; Kim</a> <span class="who">· James &amp; Kim</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3ejeh9" target="_blank">Preferred color pallete</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wm" target="_blank">Look and feel of the website</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wk" target="_blank">Favourite websites</a> <span class="who">· Unassigned</span></span></li>
+    </ul>
+  </details>
+
+  <details class="phase-group">
+    <summary><span class="phase-title">Phase 2 - Design &amp; Build</span><span class="count">44</span></summary>
+    <ul>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nct3y" target="_blank">Add mobile menu and match nav across HTML pages</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3n5z65" target="_blank">Universal section with Menu - make it look like the one in ai studio</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nbvdt" target="_blank">Slack 10 Jul: mobile universal menu + nav consistency</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nb0wq" target="_blank">Slack 10 Jul: mobile universal menu still outstanding</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3n9nqx" target="_blank">Slack 10 Jul: mobile universal menu + sitewide nav consistency</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3nct2w" target="_blank">Confirm GHL media library image approach - confirmed via Slack by Troy 10 Jul</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3h5289" target="_blank">Build header and footer universal template of https://mariangelaparodi.com/</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3jt1dw" target="_blank">Build GHL BLog Template and Post Templalate from Anchored Ttemplate</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29vw" target="_blank">XXX GHL website rebuild started - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3kfwq6" target="_blank">Set up a funnel form for landing page</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3kfwdm" target="_blank">Set up an enquiry form in Contact Us page</a> <span class="who">· Kenlie</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29z1" target="_blank">Alt text added to all images - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29yp" target="_blank">Meta description added per page - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29yg" target="_blank">Meta title added per page - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29y7" target="_blank">Featured image added per page: 1200x630px - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29xn" target="_blank">Bottom sections made universal across pages - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29y2" target="_blank">GHL build matched to approved AI design - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29x5" target="_blank">Heading hierarchy checked</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdyn0" target="_blank">One H1 per page</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdyvz" target="_blank">H2/H3/H4 structure</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wy" target="_blank">All website images optimised - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wx" target="_blank">Global sizing set from brand guide - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zy" target="_blank">Terms &amp; Conditions page created from Brandwithin template - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zf" target="_blank">Privacy Policy page created from Brandwithin template - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3jt1bm" target="_blank">MJ PLease updat ethe menu links</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e2a0c" target="_blank">Terms &amp; Conditions linked - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29zz" target="_blank">Privacy Policy linked - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvvb" target="_blank">Services Overview</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwn6" target="_blank">Blog Master</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwq9" target="_blank">Service Detail Page 1</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwgb" target="_blank">Menu Tab</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvtq" target="_blank">About Page</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwh1" target="_blank">Booking Page</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvwh" target="_blank">Contact Page</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvtf" target="_blank">Home Page</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvw3" target="_blank">Blog</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvxh" target="_blank">Footer</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwnp" target="_blank">Blog Template</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdwtq" target="_blank">Service Detail Page 2</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fdvmf" target="_blank">Website build per page completed</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fe37g" target="_blank">Opt-in Page (Funnel)</a> <span class="who">· Unassigned</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29xk" target="_blank">Top sections made universal across pages - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wg" target="_blank">Global brand colours set from brand guide - MJ</a> <span class="who">· MJ</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29wj" target="_blank">Global fonts set from brand guide - MJ</a> <span class="who">· MJ</span></span></li>
+    </ul>
+  </details>
+
+  <details class="phase-group">
+    <summary><span class="phase-title">Phase 3 - Domain, Email &amp; Technical Setup</span><span class="count">6</span></summary>
+    <ul>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29qk" target="_blank">Subdomain for Funnels</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29pw" target="_blank">Subdomain for Membership (Portal)</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29qj" target="_blank">Subdomain for Lead Magnet (Opt-in)</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29pv" target="_blank">DMARC records configured</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3e29p3" target="_blank">SPF records configured</a> <span class="who">· Troy</span></span></li>
+      <li><span class="dot progress"></span><span><a href="https://app.clickup.com/t/86d3fcn7u" target="_blank">Subdomain for branded domain</a> <span class="who">· Troy</span></span></li>
+    </ul>
+  </details>
 </section>
 
 <footer>Generated automatically from ClickUp + Slack · Brandwithin internal use</footer>

@@ -50,7 +50,7 @@ Overwrite `index.html` in the repository root. Keep the existing visual design (
 4. "Morning digest" card: exactly three lines — URGENT, BLOCKED, WATCH — each under 25 words, written from the combined Slack + ClickUp picture.
 5. Dated project timeline visual that tracks progression across major phases, milestones, blockers, and next steps.
 6. Cards: 🔥 Urgent & high priority, ⛔ Blocked, 👀 Waiting on review, 🚧 In progress, 📅 Key dates (meetings/deadlines mentioned in Slack). Every task links to https://app.clickup.com/t/TASKID with assignee first names.
-7. Bottom section: ✅ Completed tasks, listing all tasks whose status is `complete` so completed work does not look missing from the dashboard. Every completed task must link to https://app.clickup.com/t/TASKID and show assignee first names or `Unassigned`.
+7. Bottom section: ✅ Completed tasks, listing all tasks whose status is `complete` so completed work does not look missing from the dashboard. Group completed tasks by ClickUp phase/parent using native collapsible `<details>` sections: Phase 0, Phase 1, Phase 2, Phase 3, then Other completed if needed. Each phase summary must show a completed-task count. Every completed task must appear inside its phase section, link to https://app.clickup.com/t/TASKID, and show assignee first names or `Unassigned`.
 8. Footer: "Generated automatically from ClickUp + Slack · Brandwithin internal use"
 
 Single self-contained file, inline CSS, no external scripts.

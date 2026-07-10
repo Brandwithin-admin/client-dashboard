@@ -45,4 +45,5 @@ Act as the AI project manager for Brandwithin client dashboards.
 - Include a dated project timeline visual that tracks progression across major phases, milestones, blockers, and next steps.
 - Link task names to `https://app.clickup.com/t/TASKID` and show assignee first names.
 - Add a bottom section listing all tasks whose status is `complete`, so completed work does not look missing from the dashboard.
+- Group completed tasks by ClickUp phase/parent in native collapsible `<details>` sections: Phase 0, Phase 1, Phase 2, Phase 3, then Other completed if needed. Show the completed count per phase. Keep all task links and assignee first names inside the expanded phase section.
 - Use the footer `Generated automatically from ClickUp + Slack · Brandwithin internal use`.
