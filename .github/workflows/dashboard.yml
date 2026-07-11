@@ -1,0 +1,61 @@
+name: Brandwithin client dashboard sync
+
+on:
+  schedule:
+    - cron: "8 * * * *"
+  workflow_dispatch:
+    inputs:
+      backfill_hours:
+        description: "Optional Slack backfill window in hours, for example 12 or 72"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brandwithin-client-dashboard-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      CLICKUP_API_TOKEN: ${{ secrets.CLICKUP_API_TOKEN }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
+      BACKFILL_HOURS: ${{ github.event.inputs.backfill_hours || '' }}
+      BRANDWITHIN_COMMIT_AUTHOR_NAME: ${{ vars.BRANDWITHIN_COMMIT_AUTHOR_NAME || 'Brandwithin Dashboard Bot' }}
+      BRANDWITHIN_COMMIT_AUTHOR_EMAIL: ${{ vars.BRANDWITHIN_COMMIT_AUTHOR_EMAIL || 'brandwithin-dashboard-bot@users.noreply.github.com' }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate required secrets
+        run: |
+          test -n "$SLACK_BOT_TOKEN" || (echo "Missing SLACK_BOT_TOKEN repository secret" && exit 1)
+          test -n "$CLICKUP_API_TOKEN" || (echo "Missing CLICKUP_API_TOKEN repository secret" && exit 1)
+          test -n "$OPENAI_API_KEY" || (echo "Missing OPENAI_API_KEY repository secret" && exit 1)
+
+      - name: Sync Slack, ClickUp, and dashboard
+        run: python scripts/brandwithin_pm_sync.py
+
+      - name: Commit and push dashboard changes
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No dashboard diff to commit."
+            exit 0
+          fi
+
+          git config user.name "$BRANDWITHIN_COMMIT_AUTHOR_NAME"
+          git config user.email "$BRANDWITHIN_COMMIT_AUTHOR_EMAIL"
+          git add index.html
+          git commit -m "Dashboard update: $(TZ=Asia/Manila date '+%Y-%m-%d %H:%M PHT')"
+          git push
