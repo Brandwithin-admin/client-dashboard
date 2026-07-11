@@ -13,6 +13,7 @@ Act as the AI project manager for Brandwithin client dashboards.
 - Do not create fallback subtasks for Slack status updates.
 - Always regenerate `index.html` from the latest Slack and ClickUp state after reading sources.
 - Publish dashboard updates to `main`; the live page is `https://brandwithin-admin.github.io/client-dashboard/`.
+- The durable hourly scheduler is the GitHub Action in `.github/workflows/dashboard.yml`; keep any duplicate local/Codex scheduler paused unless explicitly testing.
 
 ## Safety Rules
 
