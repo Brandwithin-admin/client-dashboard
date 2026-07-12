@@ -812,10 +812,13 @@ def main() -> int:
     tasks = fetch_clickup_tasks()
 
     plan = {"clickup_actions": [], "dashboard": {}}
-    try:
-        plan = ask_ai_for_plan(slack_messages, tasks, now)
-    except Exception as exc:
-        print(f"AI planning failed; using read-only dashboard fallback: {exc}", file=sys.stderr)
+    if slack_messages:
+        try:
+            plan = ask_ai_for_plan(slack_messages, tasks, now)
+        except Exception as exc:
+            print(f"AI planning failed; using read-only dashboard fallback: {exc}", file=sys.stderr)
+    else:
+        print("OpenAI planning skipped: no Slack messages in the selected window.")
 
     action_report = []
     if slack_messages and plan.get("clickup_actions"):
