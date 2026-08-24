@@ -52,6 +52,11 @@ CLICKUP_API_TOKEN = require_env("CLICKUP_API_TOKEN")
 OPENAI_API_KEY = require_env("OPENAI_API_KEY")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4.1-mini").strip() or "gpt-4.1-mini"
 
+# ClickUp writes are disabled for now; the sync still reads ClickUp tasks and
+# regenerates the dashboard, it just skips create/update/comment calls.
+# Set CLICKUP_WRITES_ENABLED=true (repo/workflow env) to re-enable.
+CLICKUP_WRITES_ENABLED = os.environ.get("CLICKUP_WRITES_ENABLED", "false").strip().lower() == "true"
+
 
 def http_json(
     method: str,
@@ -185,6 +190,9 @@ def clickup_url(path: str, params: dict[str, str | int | bool] | None = None) ->
 
 
 def clickup_request(method: str, path: str, payload: dict | None = None, params: dict | None = None) -> dict:
+    if method.upper() != "GET" and not CLICKUP_WRITES_ENABLED:
+        print(f"[clickup writes disabled] skipped {method} {path}", file=sys.stderr)
+        return {}
     return http_json(
         method,
         clickup_url(path, params),
